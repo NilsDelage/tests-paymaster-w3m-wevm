@@ -12,6 +12,7 @@ const API_URL = 'https://api.zyfi.org/api/erc20_paymaster/v1'
 
 export default function EthPage() {
 
+  const [txHash, setTxHash] = useState<string>(''); // hash of the transaction
   const [toAddress, setToAddress] = useState<Address>('0x'); // address to send ETH to
   const { data: walletClient } = useWalletClient();
 
@@ -21,6 +22,7 @@ export default function EthPage() {
   }
 
   const clickSendTransaction = async () => {
+    setTxHash('')
     if (!walletClient) {
       alert('Please connect your wallet');
       return;
@@ -68,6 +70,7 @@ export default function EthPage() {
 
     try {
       const hash = await wClient.sendTransaction(txPayload)
+      setTxHash(hash)
       console.log('hash:', hash)
       console.log('check it on zksync explorer:', `https://explorer.zksync.io/tx/${hash}`)
     }
@@ -102,6 +105,8 @@ export default function EthPage() {
       <div className='flex-col justify-center text-center item-center'>
         <button onClick={clickSendTransaction} disabled={!isValidEthereumAddress(toAddress)} className='bg-blue-500 p-4 rounded-full disabled:opacity-50 disabled:bg-gray-500'>Send Transaction</button>
         <p className='text-sm'>Clicking on &quot;Send Transaction&quot; should send {Number(ETH_AMOUNT)} wei of ETH to the selected address while paying gas in WBTC (0xBBeB516fb02a01611cBBE0453Fe3c580D7281011)</p>
+        <p className='text-orange-400'> transaction hash will show if successfull : </p>
+        <p className='text-orange-400'>{txHash ? txHash : 'no transaction sent'}</p>
       </div>
       <div className='flex-col justify-center text-center item-center'>
         <button onClick={clickSignMessage} disabled={!walletClient} className='bg-blue-500 p-4 rounded-full disabled:opacity-50 disabled:bg-gray-500'>Sign Message</button>
