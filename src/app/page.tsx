@@ -88,7 +88,6 @@ export default function EthPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-gray-800 text-gray-300">
-      <Link href="/" className="bg-blue-800 p-2 text-white absolute top-0 left-0">go back</Link>
       <ConnectButton />
       <div className='flex-col justify-center text-center item-center'>
         <input
