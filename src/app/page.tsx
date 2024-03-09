@@ -102,7 +102,7 @@ export default function EthPage() {
       </div>
       <div className='flex-col justify-center text-center item-center'>
         <button onClick={clickSendTransaction} disabled={!isValidEthereumAddress(toAddress)} className='bg-blue-500 p-4 rounded-full disabled:opacity-50 disabled:bg-gray-500'>Send Transaction</button>
-        <p className='text-sm'>Clicking on "Send Transaction" should send {Number(ETH_AMOUNT)} wei of ETH to the selected address while paying gas in WBTC (0xBBeB516fb02a01611cBBE0453Fe3c580D7281011)</p>
+        <p className='text-sm'>Clicking on &quot;Send Transaction&quot; should send {Number(ETH_AMOUNT)} wei of ETH to the selected address while paying gas in WBTC (0xBBeB516fb02a01611cBBE0453Fe3c580D7281011)</p>
       </div>
       <div className='flex-col justify-center text-center item-center'>
         <button onClick={clickSignMessage} disabled={!walletClient} className='bg-blue-500 p-4 rounded-full disabled:opacity-50 disabled:bg-gray-500'>Sign Message</button>
@@ -112,7 +112,7 @@ export default function EthPage() {
   );
 }
 
-export function ConnectButton() {
+function ConnectButton() {
   return <w3m-button />
 }
 
