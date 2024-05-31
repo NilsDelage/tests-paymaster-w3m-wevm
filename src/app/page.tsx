@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from 'react';
-import Link from "next/link";
 import { Address } from 'viem';
 import { eip712WalletActions } from 'viem/zksync'
 import { zkSync } from 'viem/chains'
@@ -64,7 +63,7 @@ export default function EthPage() {
       maxPriorityFeePerGas: 0n,
       data: res.txData.data,
       paymaster,
-      paymasterInput
+      paymasterInput,
     }
     console.log('tranasaction payload: ', txPayload)
 

@@ -21,9 +21,12 @@ export const config = defaultWagmiConfig({
   chains: [mainnet, zkSync],
   projectId,
   metadata,
-  ssr: false,
+  ssr: true,
   enableWalletConnect: true,
   enableInjected: true,
   enableEIP6963: true,
   enableCoinbase: true,
+  storage: createStorage({
+    storage: cookieStorage
+  })
 })
