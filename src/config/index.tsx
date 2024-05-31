@@ -18,7 +18,7 @@ const metadata = {
 
 // Create wagmiConfig
 export const config = defaultWagmiConfig({
-  chains: [mainnet, zkSync],
+  chains: [zkSync],
   projectId,
   metadata,
   ssr: true,
