@@ -39,7 +39,7 @@ export default function EthPage() {
         "from": address,
         "to": toAddress,
         "value": ETH_AMOUNT.toString(),
-        "data": "0x"
+        "data": "0x0"
       }
     }
 
