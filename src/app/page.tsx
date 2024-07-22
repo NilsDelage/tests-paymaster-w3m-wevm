@@ -82,7 +82,7 @@ export default function EthPage() {
 
     // const hash = await wClient.sendTransaction(txReq)
     const signature = await wClient.signTransaction(txReq)
-    const hash = await customClient.sendRawTransaction({ serializedTransaction: signature })
+    const hash = await wClient.sendRawTransaction({ serializedTransaction: signature })
 
     // update display
     setTxHash(hash)
